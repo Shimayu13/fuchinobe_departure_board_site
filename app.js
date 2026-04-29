@@ -25,10 +25,42 @@ const nowMinutes = () => {
   }
   return normalizeRailwayDay(base + labOffsetMinutes);
 };
-const datasetKey = () => {
-  const d = new Date().getDay();
-  return (d === 0 || d === 6) ? "holiday" : "weekday";
+
+const HOLIDAYS_2026 = new Set([
+  "2026-01-01", // 元日
+  "2026-01-12", // 成人の日
+  "2026-02-11", // 建国記念の日
+  "2026-02-23", // 天皇誕生日
+  "2026-03-20", // 春分の日
+  "2026-04-29", // 昭和の日
+  "2026-05-03", // 憲法記念日
+  "2026-05-04", // みどりの日
+  "2026-05-05", // こどもの日
+  "2026-05-06", // 休日
+  "2026-07-20", // 海の日
+  "2026-08-11", // 山の日
+  "2026-09-21", // 敬老の日
+  "2026-09-22", // 休日
+  "2026-09-23", // 秋分の日
+  "2026-10-12", // スポーツの日
+  "2026-11-03", // 文化の日
+  "2026-11-23"  // 勤労感謝の日
+]);
+
+const formatDateKey = (date) => {
+  const y = date.getFullYear();
+  const m = String(date.getMonth() + 1).padStart(2, "0");
+  const d = String(date.getDate()).padStart(2, "0");
+  return `${y}-${m}-${d}`;
 };
+
+const datasetKey = () => {
+  const d = new Date();
+  const day = d.getDay();
+  const dateKey = formatDateKey(d);
+  return (day === 0 || day === 6 || HOLIDAYS_2026.has(dateKey)) ? "holiday" : "weekday";
+};
+
 const trainTimeMinutes = (t) => toMinutes(t.departure || t.arrival);
 
 const nextTrains = (list, count=3) => {
