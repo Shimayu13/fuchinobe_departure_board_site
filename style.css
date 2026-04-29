@@ -132,3 +132,10 @@ html,body{width:100%;height:100%;margin:0;background:#000;font-family:-apple-sys
   .platform{font-size:22px;width:170px;min-width:170px}.track{font-size:24px}.arrival{font-size:40px}
   .top-clock{top:18px;right:28px}.top-clock-label{font-size:18px}#clock{font-size:48px}.line-header h1{padding-right:0}
 }
+
+/* === Debug UI OFF by default === */
+#demo930,
+#debugTimeBtn,
+.debug-time-control{
+  display:none !important;
+}
