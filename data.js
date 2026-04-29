@@ -9,7 +9,7 @@ window.TIMETABLE_DATA = {
         "rapidConnection": "接続なし",
         "platform": "横浜方面ホーム",
         "track": "2番線",
-        "arrival": "5:53",
+        "arrival": "5:21",
         "rawConnection": "",
         "platformCode": "Y"
       },
@@ -2060,7 +2060,7 @@ window.TIMETABLE_DATA = {
         "type": "各停",
         "departure": "10:28",
         "destination": "橋本",
-        "hashimotoConnection": "確定に接続",
+        "hashimotoConnection": "各停に接続",
         "arrival": "10:56",
         "rawConnection": "快速"
       },
@@ -2078,7 +2078,7 @@ window.TIMETABLE_DATA = {
         "type": "各停",
         "departure": "10:50",
         "destination": "橋本",
-        "hashimotoConnection": "確定に接続",
+        "hashimotoConnection": "各停に接続",
         "arrival": "11:16",
         "rawConnection": "快速"
       },
@@ -2096,7 +2096,7 @@ window.TIMETABLE_DATA = {
         "type": "各停",
         "departure": "11:09",
         "destination": "橋本",
-        "hashimotoConnection": "確定に接続",
+        "hashimotoConnection": "各停に接続",
         "arrival": "11:36",
         "rawConnection": "快速"
       },
@@ -2114,7 +2114,7 @@ window.TIMETABLE_DATA = {
         "type": "各停",
         "departure": "11:29",
         "destination": "橋本",
-        "hashimotoConnection": "確定に接続",
+        "hashimotoConnection": "各停に接続",
         "arrival": "11:56",
         "rawConnection": "快速"
       },
@@ -2132,7 +2132,7 @@ window.TIMETABLE_DATA = {
         "type": "各停",
         "departure": "11:49",
         "destination": "橋本",
-        "hashimotoConnection": "確定に接続",
+        "hashimotoConnection": "各停に接続",
         "arrival": "12:16",
         "rawConnection": "快速"
       },
@@ -2150,7 +2150,7 @@ window.TIMETABLE_DATA = {
         "type": "各停",
         "departure": "12:12",
         "destination": "橋本",
-        "hashimotoConnection": "確定に接続",
+        "hashimotoConnection": "各停に接続",
         "arrival": "12:36",
         "rawConnection": "快速"
       },
@@ -2168,7 +2168,7 @@ window.TIMETABLE_DATA = {
         "type": "各停",
         "departure": "12:29",
         "destination": "橋本",
-        "hashimotoConnection": "確定に接続",
+        "hashimotoConnection": "各停に接続",
         "arrival": "12:56",
         "rawConnection": "快速"
       },
@@ -2186,7 +2186,7 @@ window.TIMETABLE_DATA = {
         "type": "各停",
         "departure": "12:49",
         "destination": "橋本",
-        "hashimotoConnection": "確定に接続",
+        "hashimotoConnection": "各停に接続",
         "arrival": "13:16",
         "rawConnection": "快速"
       },
@@ -2204,7 +2204,7 @@ window.TIMETABLE_DATA = {
         "type": "各停",
         "departure": "13:09",
         "destination": "橋本",
-        "hashimotoConnection": "確定に接続",
+        "hashimotoConnection": "各停に接続",
         "arrival": "13:36",
         "rawConnection": "快速"
       },
@@ -2222,7 +2222,7 @@ window.TIMETABLE_DATA = {
         "type": "各停",
         "departure": "13:29",
         "destination": "橋本",
-        "hashimotoConnection": "確定に接続",
+        "hashimotoConnection": "各停に接続",
         "arrival": "13:56",
         "rawConnection": "快速"
       },
@@ -2240,7 +2240,7 @@ window.TIMETABLE_DATA = {
         "type": "各停",
         "departure": "13:49",
         "destination": "橋本",
-        "hashimotoConnection": "確定に接続",
+        "hashimotoConnection": "各停に接続",
         "arrival": "14:16",
         "rawConnection": "快速"
       },
@@ -2258,7 +2258,7 @@ window.TIMETABLE_DATA = {
         "type": "各停",
         "departure": "14:09",
         "destination": "橋本",
-        "hashimotoConnection": "確定に接続",
+        "hashimotoConnection": "各停に接続",
         "arrival": "14:36",
         "rawConnection": "快速"
       },
@@ -2276,7 +2276,7 @@ window.TIMETABLE_DATA = {
         "type": "各停",
         "departure": "14:29",
         "destination": "橋本",
-        "hashimotoConnection": "確定に接続",
+        "hashimotoConnection": "各停に接続",
         "arrival": "14:56",
         "rawConnection": "快速"
       },
@@ -2294,7 +2294,7 @@ window.TIMETABLE_DATA = {
         "type": "各停",
         "departure": "14:49",
         "destination": "橋本",
-        "hashimotoConnection": "確定に接続",
+        "hashimotoConnection": "各停に接続",
         "arrival": "15:16",
         "rawConnection": "快速"
       },
@@ -2312,7 +2312,7 @@ window.TIMETABLE_DATA = {
         "type": "各停",
         "departure": "15:09",
         "destination": "橋本",
-        "hashimotoConnection": "確定に接続",
+        "hashimotoConnection": "各停に接続",
         "arrival": "15:36",
         "rawConnection": "快速"
       },
@@ -2330,7 +2330,7 @@ window.TIMETABLE_DATA = {
         "type": "各停",
         "departure": "15:29",
         "destination": "橋本",
-        "hashimotoConnection": "確定に接続",
+        "hashimotoConnection": "各停に接続",
         "arrival": "15:56",
         "rawConnection": "快速"
       },
@@ -2348,7 +2348,7 @@ window.TIMETABLE_DATA = {
         "type": "各停",
         "departure": "15:49",
         "destination": "橋本",
-        "hashimotoConnection": "確定に接続",
+        "hashimotoConnection": "各停に接続",
         "arrival": "16:16",
         "rawConnection": "快速"
       },
@@ -4739,7 +4739,7 @@ window.TIMETABLE_DATA = {
         "type": "各停",
         "departure": "11:10",
         "destination": "橋本",
-        "hashimotoConnection": "確定に接続",
+        "hashimotoConnection": "各停に接続",
         "arrival": "11:35",
         "rawConnection": "快速"
       },
@@ -4757,7 +4757,7 @@ window.TIMETABLE_DATA = {
         "type": "各停",
         "departure": "11:29",
         "destination": "橋本",
-        "hashimotoConnection": "確定に接続",
+        "hashimotoConnection": "各停に接続",
         "arrival": "11:55",
         "rawConnection": "快速"
       },
@@ -4775,7 +4775,7 @@ window.TIMETABLE_DATA = {
         "type": "各停",
         "departure": "11:49",
         "destination": "橋本",
-        "hashimotoConnection": "確定に接続",
+        "hashimotoConnection": "各停に接続",
         "arrival": "12:15",
         "rawConnection": "快速"
       },
@@ -4793,7 +4793,7 @@ window.TIMETABLE_DATA = {
         "type": "各停",
         "departure": "12:09",
         "destination": "橋本",
-        "hashimotoConnection": "確定に接続",
+        "hashimotoConnection": "各停に接続",
         "arrival": "12:35",
         "rawConnection": "快速"
       },
@@ -4811,7 +4811,7 @@ window.TIMETABLE_DATA = {
         "type": "各停",
         "departure": "12:29",
         "destination": "橋本",
-        "hashimotoConnection": "確定に接続",
+        "hashimotoConnection": "各停に接続",
         "arrival": "12:55",
         "rawConnection": "快速"
       },
@@ -4829,7 +4829,7 @@ window.TIMETABLE_DATA = {
         "type": "各停",
         "departure": "12:49",
         "destination": "橋本",
-        "hashimotoConnection": "確定に接続",
+        "hashimotoConnection": "各停に接続",
         "arrival": "13:15",
         "rawConnection": "快速"
       },
@@ -4847,7 +4847,7 @@ window.TIMETABLE_DATA = {
         "type": "各停",
         "departure": "13:09",
         "destination": "橋本",
-        "hashimotoConnection": "確定に接続",
+        "hashimotoConnection": "各停に接続",
         "arrival": "13:35",
         "rawConnection": "快速"
       },
@@ -4865,7 +4865,7 @@ window.TIMETABLE_DATA = {
         "type": "各停",
         "departure": "13:29",
         "destination": "橋本",
-        "hashimotoConnection": "確定に接続",
+        "hashimotoConnection": "各停に接続",
         "arrival": "13:55",
         "rawConnection": "快速"
       },
@@ -4883,7 +4883,7 @@ window.TIMETABLE_DATA = {
         "type": "各停",
         "departure": "13:49",
         "destination": "橋本",
-        "hashimotoConnection": "確定に接続",
+        "hashimotoConnection": "各停に接続",
         "arrival": "14:15",
         "rawConnection": "快速"
       },
@@ -4901,7 +4901,7 @@ window.TIMETABLE_DATA = {
         "type": "各停",
         "departure": "14:09",
         "destination": "橋本",
-        "hashimotoConnection": "確定に接続",
+        "hashimotoConnection": "各停に接続",
         "arrival": "14:35",
         "rawConnection": "快速"
       },
@@ -4919,7 +4919,7 @@ window.TIMETABLE_DATA = {
         "type": "各停",
         "departure": "14:29",
         "destination": "橋本",
-        "hashimotoConnection": "確定に接続",
+        "hashimotoConnection": "各停に接続",
         "arrival": "14:55",
         "rawConnection": "快速"
       },
@@ -4937,7 +4937,7 @@ window.TIMETABLE_DATA = {
         "type": "各停",
         "departure": "14:49",
         "destination": "橋本",
-        "hashimotoConnection": "確定に接続",
+        "hashimotoConnection": "各停に接続",
         "arrival": "15:15",
         "rawConnection": "快速"
       },
@@ -4955,7 +4955,7 @@ window.TIMETABLE_DATA = {
         "type": "各停",
         "departure": "15:09",
         "destination": "橋本",
-        "hashimotoConnection": "確定に接続",
+        "hashimotoConnection": "各停に接続",
         "arrival": "15:35",
         "rawConnection": "快速"
       },
@@ -4973,7 +4973,7 @@ window.TIMETABLE_DATA = {
         "type": "各停",
         "departure": "15:29",
         "destination": "橋本",
-        "hashimotoConnection": "確定に接続",
+        "hashimotoConnection": "各停に接続",
         "arrival": "15:55",
         "rawConnection": "快速"
       },
@@ -4991,7 +4991,7 @@ window.TIMETABLE_DATA = {
         "type": "各停",
         "departure": "15:49",
         "destination": "橋本",
-        "hashimotoConnection": "確定に接続",
+        "hashimotoConnection": "各停に接続",
         "arrival": "16:15",
         "rawConnection": "快速"
       },
@@ -5009,7 +5009,7 @@ window.TIMETABLE_DATA = {
         "type": "各停",
         "departure": "16:09",
         "destination": "橋本",
-        "hashimotoConnection": "確定に接続",
+        "hashimotoConnection": "各停に接続",
         "arrival": "16:35",
         "rawConnection": "快速"
       },
@@ -5027,7 +5027,7 @@ window.TIMETABLE_DATA = {
         "type": "各停",
         "departure": "16:29",
         "destination": "橋本",
-        "hashimotoConnection": "確定に接続",
+        "hashimotoConnection": "各停に接続",
         "arrival": "16:55",
         "rawConnection": "快速"
       },
@@ -5045,7 +5045,7 @@ window.TIMETABLE_DATA = {
         "type": "各停",
         "departure": "16:49",
         "destination": "橋本",
-        "hashimotoConnection": "確定に接続",
+        "hashimotoConnection": "各停に接続",
         "arrival": "17:15",
         "rawConnection": "快速"
       },
@@ -5063,7 +5063,7 @@ window.TIMETABLE_DATA = {
         "type": "各停",
         "departure": "17:09",
         "destination": "橋本",
-        "hashimotoConnection": "確定に接続",
+        "hashimotoConnection": "各停に接続",
         "arrival": "17:35",
         "rawConnection": "快速"
       },
@@ -5081,7 +5081,7 @@ window.TIMETABLE_DATA = {
         "type": "各停",
         "departure": "17:29",
         "destination": "橋本",
-        "hashimotoConnection": "確定に接続",
+        "hashimotoConnection": "各停に接続",
         "arrival": "17:55",
         "rawConnection": "快速"
       },
@@ -5099,7 +5099,7 @@ window.TIMETABLE_DATA = {
         "type": "各停",
         "departure": "17:49",
         "destination": "橋本",
-        "hashimotoConnection": "確定に接続",
+        "hashimotoConnection": "各停に接続",
         "arrival": "18:15",
         "rawConnection": "快速"
       },
