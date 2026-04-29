@@ -1,5 +1,6 @@
 const data = window.TIMETABLE_DATA;
 let demoTime = null;
+let labOffsetMinutes = 0;
 
 const toMinutes = (hm) => {
   if (!hm) return 0;
@@ -8,9 +9,9 @@ const toMinutes = (hm) => {
 };
 const pad = (n) => String(n).padStart(2, "0");
 const nowMinutes = () => {
-  if (demoTime !== null) return demoTime;
+  if (demoTime !== null) return demoTime + labOffsetMinutes;
   const d = new Date();
-  return d.getHours() * 60 + d.getMinutes();
+  return d.getHours() * 60 + d.getMinutes() + labOffsetMinutes;
 };
 const datasetKey = () => {
   const d = new Date().getDay();
@@ -73,10 +74,15 @@ function render(){
   document.getElementById("inboundRows").innerHTML = nextTrains(data[key].inbound).map(inboundRow).join("");
   document.getElementById("outboundRows").innerHTML = nextTrains(data[key].outbound).map(outboundRow).join("");
   const d = new Date();
-  const text = demoTime !== null ? `${Math.floor(demoTime/60)}:${pad(demoTime%60)}` : `${d.getHours()}:${pad(d.getMinutes())}`;
+  const displayMinutes = demoTime !== null
+    ? demoTime + labOffsetMinutes
+    : d.getHours() * 60 + d.getMinutes() + labOffsetMinutes;
+  const normalizedDisplayMinutes = ((displayMinutes % (24 * 60)) + (24 * 60)) % (24 * 60);
+  const text = `${Math.floor(normalizedDisplayMinutes / 60)}:${pad(normalizedDisplayMinutes % 60)}`;
   document.getElementById("clock").textContent = text;
 }
 document.getElementById("demo930").addEventListener("click", () => { demoTime = 9*60+30; render(); });
-document.getElementById("nowBtn").addEventListener("click", () => { demoTime = null; render(); });
+document.getElementById("nowBtn").addEventListener("click", () => { demoTime = null; labOffsetMinutes = 0; render(); });
+document.getElementById("labModeBtn").addEventListener("click", () => { demoTime = null; labOffsetMinutes = 10; render(); });
 render();
 setInterval(render, 10000);
