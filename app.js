@@ -43,7 +43,7 @@ const platformClass = (txt) => {
 function inboundRow(t){
   const pClass = platformClass(t.platform);
   return `<div class="row inbound-row">
-    <div class="cell"><div class="type-badge ${typeClass(t.type)}"><span>${t.type}</span><span class="train-icon">▣</span></div></div>
+    <div class="cell"><div class="type-badge ${typeClass(t.type)}"><span>${t.type}</span></div></div>
     <div class="cell time">${t.departure}</div>
     <div class="cell destination ${destinationClass(t.destination)}">${t.destination}</div>
     <div class="cell connection ${connectionClass(t.rapidConnection)}">
@@ -61,7 +61,7 @@ function outboundRow(t){
     ? `<span>接続なし</span>`
     : `<span>${t.hashimotoConnection}</span>`;
   return `<div class="row outbound-row">
-    <div class="cell"><div class="type-badge ${typeClass(t.type)}"><span>${t.type}</span><span class="train-icon">▣</span></div></div>
+    <div class="cell"><div class="type-badge ${typeClass(t.type)}"><span>${t.type}</span></div></div>
     <div class="cell time">${t.departure}</div>
     <div class="cell destination">${t.destination}</div>
     <div class="cell connection ${cClass}"><div class="outbound-detail"><span class="mark">${mark(t.hashimotoConnection)}</span>${detail}</div></div>
