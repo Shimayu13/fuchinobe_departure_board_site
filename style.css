@@ -57,6 +57,17 @@ html,body{width:100%;height:100%;margin:0;background:#000;font-family:-apple-sys
 .connection{
   gap:10px; font-size:28px; font-weight:900; flex-direction:column; line-height:1.05;
 }
+.rapid-connection{
+  flex-direction:row;
+  gap:8px;
+  white-space:nowrap;
+}
+.connection-station{
+  color:#2f8cff;
+  margin-right:2px;
+  font-size:44px; /* 行き先と同じサイズに統一 */
+  font-weight:900;
+}
 .connection .mark{font-size:42px;width:1.2em;height:auto;border-radius:0;display:inline-block;text-align:center;border:0;color:#fff;line-height:1;background:transparent}
 .connection.none .mark{border:0;color:#ccc;font-size:44px;background:transparent}
 .connection.none{color:#eee}
@@ -69,7 +80,7 @@ html,body{width:100%;height:100%;margin:0;background:#000;font-family:-apple-sys
   font-size:29px;font-weight:900;white-space:nowrap;background:#101010
 }
 .platform{
-  border-radius:5px;padding:9px 16px;min-width:190px;text-align:center;font-size:27px;font-weight:900;white-space:nowrap
+  border-radius:5px;padding:9px 12px;width:210px;min-width:210px;text-align:center;font-size:27px;font-weight:900;white-space:nowrap;display:inline-block
 }
 .platform.kawasaki{background:linear-gradient(#ffa71a,#c77700)}
 .platform.yokohama{background:linear-gradient(#ff40db,#bd168f)}
@@ -89,5 +100,5 @@ button:hover{border-color:var(--line);color:#fff}
 @media (max-width:1400px){
   .line-header h1{font-size:44px}.line-header p{font-size:26px}
   .time{font-size:50px}.destination{font-size:46px}.type-badge{font-size:34px}.arrival{font-size:38px}
-  .platform{font-size:22px;min-width:150px}.track{font-size:24px}.arrival{font-size:40px}
+  .platform{font-size:22px;width:170px;min-width:170px}.track{font-size:24px}.arrival{font-size:40px}
 }

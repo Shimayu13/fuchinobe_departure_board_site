@@ -45,6 +45,11 @@ const connectionClass = (txt) => {
   return "good";
 };
 const mark = (txt) => txt.includes("なし") ? "×" : "○";
+const rapidConnectionLabel = (txt) => {
+  if (txt.includes("なし")) return "";
+  const station = txt.replace("で接続", "");
+  return `<span class="connection-station">${station}</span>`;
+};
 const platformClass = (txt) => {
   if (txt.includes("川崎")) return "kawasaki";
   if (txt.includes("横浜")) return "yokohama";
@@ -58,8 +63,10 @@ function inboundRow(t){
     <div class="cell"><div class="type-badge ${typeClass(t)}"><span>${typeLabel(t)}</span></div></div>
     <div class="cell time">${t.departure}</div>
     <div class="cell destination ${destinationClass(t.destination)}">${t.destination}</div>
-    <div class="cell connection ${connectionClass(t.rapidConnection)}">
-      <span class="mark">${mark(t.rapidConnection)}</span><span>${t.rapidConnection}</span>
+    <div class="cell connection rapid-connection ${connectionClass(t.rapidConnection)}">
+      ${t.rapidConnection.includes("なし")
+        ? `<span class="mark">×</span>`
+        : rapidConnectionLabel(t.rapidConnection)}
     </div>
     <div class="cell"><div class="platform-box">
       <span class="platform ${pClass}">${t.platform}</span>
