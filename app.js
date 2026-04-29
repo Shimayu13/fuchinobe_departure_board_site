@@ -74,6 +74,10 @@ const rapidConnectionLabel = (txt) => {
   const station = txt.replace("で接続", "");
   return `<span class="connection-station">${station}</span>`;
 };
+const displayArrival = (value) => {
+  if (value === null || value === undefined || value === "") return "";
+  return value;
+};
 const platformClass = (txt) => {
   if (txt.includes("川崎")) return "kawasaki";
   if (txt.includes("横浜")) return "yokohama";
@@ -95,7 +99,7 @@ function inboundRow(t){
     <div class="cell"><div class="platform-box">
       <span class="platform ${pClass}">${t.platform}</span>
     </div></div>
-    <div class="cell arrival"><span>${t.arrival}</span></div>
+    <div class="cell arrival"><span>${displayArrival(t.arrival)}</span></div>
   </div>`;
 }
 function outboundRow(t){
@@ -108,7 +112,7 @@ function outboundRow(t){
     <div class="cell time">${t.departure}</div>
     <div class="cell destination">${t.destination}</div>
     <div class="cell connection ${cClass}"><div class="outbound-detail"><span class="mark">${mark(t.hashimotoConnection)}</span>${detail}</div></div>
-    <div class="cell arrival"><span>${t.arrival}</span></div>
+    <div class="cell arrival"><span>${displayArrival(t.arrival)}</span></div>
   </div>`;
 }
 function render(){
