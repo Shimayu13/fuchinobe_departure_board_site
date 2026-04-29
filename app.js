@@ -147,6 +147,16 @@ function render(){
   document.getElementById("clock").textContent = text;
 }
 document.getElementById("demo930").addEventListener("click", () => { demoTime = 9*60+30; render(); });
+const applyDebugTime = () => {
+  const input = document.getElementById("debugTimeInput");
+  if (!input || !input.value) return;
+  const [h, m] = input.value.split(":").map(Number);
+  if (!Number.isFinite(h) || !Number.isFinite(m)) return;
+  demoTime = h * 60 + m;
+  render();
+};
+document.getElementById("debugTimeBtn").addEventListener("click", applyDebugTime);
+document.getElementById("debugTimeInput").addEventListener("change", applyDebugTime);
 document.getElementById("nowBtn").addEventListener("click", () => { demoTime = null; labOffsetMinutes = 0; render(); });
 
 const updateLabOffsetLabel = () => {
