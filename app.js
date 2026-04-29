@@ -29,23 +29,42 @@ const datasetKey = () => {
   const d = new Date().getDay();
   return (d === 0 || d === 6) ? "holiday" : "weekday";
 };
+const trainTimeMinutes = (t) => toMinutes(t.departure || t.arrival);
+
 const nextTrains = (list, count=3) => {
   const current = nowMinutes();
+
+  // 現在時刻（通常の0〜1439分）
+  const d = new Date();
+  const rawCurrent = demoTime !== null
+    ? demoTime
+    : d.getHours() * 60 + d.getMinutes();
+
+  // 最終列車時刻（通常時刻で比較）
+  const lastDeparture = Math.max(...list.map(t => trainTimeMinutes(t)));
 
   const sorted = list
     .map(t => ({
       ...t,
-      _t: normalizeRailwayDay(toMinutes(t.departure))
+      _t: normalizeRailwayDay(trainTimeMinutes(t))
     }))
     .sort((a, b) => a._t - b._t);
 
   const future = sorted.filter(t => t._t >= current);
 
+  // 🚫 最終列車後〜4:00までは折り返さない
+  if (rawCurrent >= lastDeparture && rawCurrent < 240) {
+    return sorted.slice(-count);
+  }
+
   if (future.length >= count) return future.slice(0, count);
 
-  // wrap around (after midnight)
-  const remain = count - future.length;
-  return [...future, ...sorted.slice(0, remain)];
+  // その日の残り列車が3本未満の場合でも、翌日の始発は混ぜない
+  // 例: 23:37時点で残りが 23:58 / 0:19 の2本だけなら、3本目は表示しない
+  if (future.length > 0) return future;
+
+  // 最終列車後は、翌日の始発に折り返さず、最後の列車を表示し続ける
+  return sorted.slice(-count);
 };
 const isNegishiThrough = (t) => ["桜木町","大船","磯子"].includes(t.destination);
 
