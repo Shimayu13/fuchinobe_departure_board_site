@@ -86,8 +86,8 @@ function render(){
   document.getElementById("outboundRows").innerHTML = nextTrains(data[key].outbound).map(outboundRow).join("");
   const d = new Date();
   const displayMinutes = demoTime !== null
-    ? demoTime + labOffsetMinutes
-    : d.getHours() * 60 + d.getMinutes() + labOffsetMinutes;
+    ? demoTime
+    : d.getHours() * 60 + d.getMinutes();
   const normalizedDisplayMinutes = ((displayMinutes % (24 * 60)) + (24 * 60)) % (24 * 60);
   const text = `${Math.floor(normalizedDisplayMinutes / 60)}:${pad(normalizedDisplayMinutes % 60)}`;
   document.getElementById("clock").textContent = text;
