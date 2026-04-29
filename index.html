@@ -43,7 +43,12 @@
       <div class="controls">
         <button id="demo930">9:30表示</button>
         <button id="nowBtn">現在時刻</button>
-        <button id="labModeBtn">研究室表示（+10分）</button>
+        <label class="lab-offset-control">
+          <span>研究室表示</span>
+          <input id="labOffsetInput" type="range" min="0" max="30" step="1" value="10">
+          <strong id="labOffsetValue">10分先</strong>
+        </label>
+        <button id="labModeBtn">適用</button>
       </div>
     </footer>
   </main>

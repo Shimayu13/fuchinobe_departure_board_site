@@ -121,9 +121,11 @@ html,body{width:100%;height:100%;margin:0;background:#000;font-family:-apple-sys
 .sagami{background:linear-gradient(#90d650,#4f8f1c);padding:8px 16px;border-radius:5px}
 .divider{background:var(--line);box-shadow:0 0 12px rgba(139,210,79,.65)}
 .footer{display:grid;grid-template-columns:1fr auto;align-items:center;gap:18px;color:#e6e6e6;font-size:24px}
-.controls{display:flex;gap:8px}
-button{background:#161a16;color:#ddd;border:1px solid #384238;border-radius:6px;padding:8px 12px;font-weight:800;font-size:14px}
-button:hover{border-color:var(--line);color:#fff}
+.controls{display:flex;gap:8px;align-items:center}
+.lab-offset-control{display:flex;align-items:center;gap:10px;background:#161a16;color:#ddd;border:1px solid #384238;border-radius:6px;padding:7px 12px;font-weight:800;font-size:14px;white-space:nowrap}
+.lab-offset-control input[type="range"]{width:150px;accent-color:var(--line);cursor:pointer}
+.lab-offset-control input[type="range"]:focus{outline:none}
+.lab-offset-control strong{min-width:48px;text-align:right;color:#fff;font-size:15px;font-weight:900}
 @media (max-width:1400px){
   .line-header h1{font-size:44px}.line-header p{font-size:26px}
   .time{font-size:50px}.destination{font-size:46px}.type-badge{font-size:34px}.arrival{font-size:38px}

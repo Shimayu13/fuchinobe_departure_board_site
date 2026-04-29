@@ -101,7 +101,29 @@ function render(){
 }
 document.getElementById("demo930").addEventListener("click", () => { demoTime = 9*60+30; render(); });
 document.getElementById("nowBtn").addEventListener("click", () => { demoTime = null; labOffsetMinutes = 0; render(); });
-document.getElementById("labModeBtn").addEventListener("click", () => { demoTime = null; labOffsetMinutes = 10; render(); });
+
+const updateLabOffsetLabel = () => {
+  const input = document.getElementById("labOffsetInput");
+  const label = document.getElementById("labOffsetValue");
+  if (!input || !label) return 10;
+
+  const value = Number(input.value);
+  const minutes = Number.isFinite(value) ? Math.max(0, Math.min(30, Math.round(value))) : 10;
+  input.value = minutes;
+  label.textContent = `${minutes}分先`;
+  return minutes;
+};
+
+const applyLabMode = () => {
+  demoTime = null;
+  labOffsetMinutes = updateLabOffsetLabel();
+  render();
+};
+
+document.getElementById("labModeBtn").addEventListener("click", applyLabMode);
+document.getElementById("labOffsetInput").addEventListener("input", updateLabOffsetLabel);
+document.getElementById("labOffsetInput").addEventListener("change", applyLabMode);
+updateLabOffsetLabel();
 render();
 setInterval(render, 10000);
 setInterval(() => {
