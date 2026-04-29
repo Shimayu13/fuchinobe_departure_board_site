@@ -9,10 +9,21 @@ const toMinutes = (hm) => {
   return h * 60 + m;
 };
 const pad = (n) => String(n).padStart(2, "0");
+const normalizeRailwayDay = (min) => {
+  // shift so that 4:00 = 0
+  const shifted = min - 240;
+  return (shifted + 1440) % 1440;
+};
+
 const nowMinutes = () => {
-  if (demoTime !== null) return demoTime + labOffsetMinutes;
-  const d = new Date();
-  return d.getHours() * 60 + d.getMinutes() + labOffsetMinutes;
+  let base;
+  if (demoTime !== null) {
+    base = demoTime;
+  } else {
+    const d = new Date();
+    base = d.getHours() * 60 + d.getMinutes();
+  }
+  return normalizeRailwayDay(base + labOffsetMinutes);
 };
 const datasetKey = () => {
   const d = new Date().getDay();
@@ -20,8 +31,21 @@ const datasetKey = () => {
 };
 const nextTrains = (list, count=3) => {
   const current = nowMinutes();
-  const future = list.filter(t => toMinutes(t.departure) >= current);
-  return (future.length >= count ? future : list).slice(0, count);
+
+  const sorted = list
+    .map(t => ({
+      ...t,
+      _t: normalizeRailwayDay(toMinutes(t.departure))
+    }))
+    .sort((a, b) => a._t - b._t);
+
+  const future = sorted.filter(t => t._t >= current);
+
+  if (future.length >= count) return future.slice(0, count);
+
+  // wrap around (after midnight)
+  const remain = count - future.length;
+  return [...future, ...sorted.slice(0, remain)];
 };
 const isNegishiThrough = (t) => ["桜木町","大船","磯子"].includes(t.destination);
 

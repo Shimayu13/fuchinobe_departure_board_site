@@ -518,18 +518,6 @@ window.TIMETABLE_DATA = {
         "platformCode": "N"
       },
       {
-        "trainNo": "3938K",
-        "type": "快速",
-        "departure": "",
-        "destination": "桜木町",
-        "rapidConnection": "",
-        "platform": "根岸線直通",
-        "track": "1番線",
-        "arrival": "10:22",
-        "rawConnection": "",
-        "platformCode": "N"
-      },
-      {
         "trainNo": "942K",
         "type": "各停",
         "departure": "9:52",
