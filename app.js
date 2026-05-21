@@ -1,4 +1,8 @@
 const data = window.TIMETABLE_DATA;
+const TRAIN_SIDE_IMAGE = "画像 2.PNG";
+const TRAIN_APPROACH_SECONDS = 10;
+const TRAIN_STOP_SECONDS = 60;
+const TRAIN_DEPARTURE_SECONDS = 10;
 let demoTime = null;
 let labOffsetMinutes = 0;
 let blinkMode = false;
@@ -15,6 +19,11 @@ const normalizeRailwayDay = (min) => {
   return (shifted + 1440) % 1440;
 };
 
+const normalizeRailwayDaySeconds = (sec) => {
+  const shifted = sec - 240 * 60;
+  return (shifted + 86400) % 86400;
+};
+
 const nowMinutes = () => {
   let base;
   if (demoTime !== null) {
@@ -24,6 +33,68 @@ const nowMinutes = () => {
     base = d.getHours() * 60 + d.getMinutes();
   }
   return normalizeRailwayDay(base + labOffsetMinutes);
+};
+
+const nowSeconds = () => {
+  let base;
+  if (demoTime !== null) {
+    base = demoTime * 60;
+  } else {
+    const d = new Date();
+    base = d.getHours() * 3600 + d.getMinutes() * 60 + d.getSeconds();
+  }
+  return normalizeRailwayDaySeconds(base + labOffsetMinutes * 60);
+};
+
+const trainTimeSeconds = (t) => trainTimeMinutes(t) * 60;
+
+const minutesUntilTrain = (t) => {
+  const current = nowMinutes();
+  const train = normalizeRailwayDay(trainTimeMinutes(t));
+  return (train - current + 1440) % 1440;
+};
+
+const trainVisualStyle = () => "";
+
+const signedSecondsUntilTrain = (t) => {
+  const current = nowSeconds();
+  const train = normalizeRailwayDaySeconds(trainTimeSeconds(t));
+  let diff = train - current;
+  if (diff > 43200) diff -= 86400;
+  if (diff < -43200) diff += 86400;
+  return diff;
+};
+
+const activeHeaderTrainState = (list) => {
+  const active = list
+    .map(t => ({ train: t, diff: signedSecondsUntilTrain(t) }))
+    .filter(item => item.diff >= -TRAIN_STOP_SECONDS - TRAIN_DEPARTURE_SECONDS && item.diff <= TRAIN_APPROACH_SECONDS)
+    .sort((a, b) => Math.abs(a.diff) - Math.abs(b.diff))[0];
+
+  if (!active) return { opacity: 0, x: -140 };
+
+  const diff = active.diff;
+  if (diff > 0) {
+    const progress = 1 - diff / TRAIN_APPROACH_SECONDS;
+    return { opacity: 1, x: -140 + progress * 140 };
+  }
+
+  if (diff >= -TRAIN_STOP_SECONDS) {
+    return { opacity: 1, x: 0 };
+  }
+
+  const exitProgress = Math.min(1, Math.max(0, (-diff - TRAIN_STOP_SECONDS) / TRAIN_DEPARTURE_SECONDS));
+  return { opacity: 1 - exitProgress * 0.15, x: exitProgress * 140 };
+};
+
+const updateHeaderTrain = (id, list, direction) => {
+  const el = document.getElementById(id);
+  if (!el) return;
+
+  const state = activeHeaderTrainState(list);
+  const x = direction === "outbound" ? -state.x : state.x;
+  el.style.setProperty("--header-train-x", `${x}%`);
+  el.style.opacity = state.opacity;
 };
 
 const HOLIDAYS_2026 = new Set([
@@ -154,8 +225,12 @@ function outboundRow(t){
 }
 function render(){
   const key = datasetKey();
-  document.getElementById("inboundRows").innerHTML = nextTrains(data[key].inbound).map(inboundRow).join("");
-  document.getElementById("outboundRows").innerHTML = nextTrains(data[key].outbound).map(outboundRow).join("");
+  const inboundList = data[key].inbound;
+  const outboundList = data[key].outbound;
+  document.getElementById("inboundRows").innerHTML = nextTrains(inboundList).map(inboundRow).join("");
+  document.getElementById("outboundRows").innerHTML = nextTrains(outboundList).map(outboundRow).join("");
+  updateHeaderTrain("inboundHeaderTrain", inboundList, "inbound");
+  updateHeaderTrain("outboundHeaderTrain", outboundList, "outbound");
   const d = new Date();
   const displayMinutes = demoTime !== null
     ? demoTime
@@ -200,7 +275,7 @@ document.getElementById("labOffsetInput").addEventListener("input", updateLabOff
 document.getElementById("labOffsetInput").addEventListener("change", applyLabMode);
 updateLabOffsetLabel();
 render();
-setInterval(render, 10000);
+setInterval(render, 1000);
 setInterval(() => {
   blinkMode = !blinkMode;
   render();
